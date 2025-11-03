@@ -1,4 +1,5 @@
 def main() -> None:
+    """Entry point printing the Codex automation greeting."""
     print("Hello from Codex automation!")
 
 
