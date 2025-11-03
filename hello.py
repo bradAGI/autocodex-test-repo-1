@@ -5,14 +5,15 @@ from typing import Optional, Sequence
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """Build and configure the CLI argument parser.
+    """Create the argument parser for the greeting CLI.
 
     Returns:
-        argparse.ArgumentParser: Parser with arguments defined for the script.
+        argparse.ArgumentParser: Parser configured with the ``--name`` option.
     """
     parser = argparse.ArgumentParser(description="Print a personalized greeting.")
     parser.add_argument(
         "--name",
+        "-n",
         default="Codex automation",
         help="Name to include in the greeting.",
     )
@@ -20,32 +21,32 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
-    """Parse the command-line arguments for the greeting script.
+    """Extract CLI arguments for the greeting command.
 
     Args:
         argv: Custom argument list for testing; defaults to ``sys.argv``.
 
     Returns:
-        argparse.Namespace: Parsed CLI arguments.
+        argparse.Namespace: Parsed CLI arguments with the resolved name.
     """
     parser = build_parser()
     return parser.parse_args(argv)
 
 
 def compose_greeting(name: str) -> str:
-    """Compose a personalized greeting.
+    """Compose the text shown to the user.
 
     Args:
         name: Person to greet.
 
     Returns:
-        str: Greeting message.
+        str: Greeting message tailored for ``name``.
     """
     return f"Hello {name}!"
 
 
 def main(argv: Optional[Sequence[str]] = None) -> None:
-    """Program entry point for the greeting script.
+    """Run the CLI and emit the greeting.
 
     Args:
         argv: Custom argument list for testing; defaults to ``sys.argv``.
