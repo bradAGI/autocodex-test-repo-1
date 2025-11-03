@@ -1,5 +1,5 @@
 def main() -> None:
-    """Entrypoint that greets from the automation harness."""
+    """Print a friendly greeting from Codex automation."""
     print("Hello from Codex automation!")
 
 
